@@ -8,14 +8,13 @@ on:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    environment: prod
     env:
-      PRODUCT_URL: ${{ secrets.PRODUCT_URL }}
-      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-      SMTP_PORT: ${{ secrets.SMTP_PORT }}
-      FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+      PRODUCT_URL: ${{ vars.PRODUCT_URL }}
+      SMTP_SERVER: ${{ vars.SMTP_SERVER }}
+      SMTP_PORT: ${{ vars.SMTP_PORT }}
+      FROM_EMAIL: ${{ vars.FROM_EMAIL }}
+      TO_EMAIL: ${{ vars.TO_EMAIL }}
       EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-      TO_EMAIL: ${{ secrets.TO_EMAIL }}
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
