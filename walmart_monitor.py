@@ -121,7 +121,9 @@ Time: {timestamp}
 
 This is an automated notification from your Walmart product monitor.
         """
-        self.send_notification(subject, notification_message)
+        # Only send email if available
+        if is_available:
+            self.send_notification(subject, notification_message)
 
 def get_config_from_env():
     product_url = os.environ['PRODUCT_URL']
