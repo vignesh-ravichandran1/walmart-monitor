@@ -23,5 +23,7 @@ jobs:
           python-version: '3.10'
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Test Email Connectivity
+        run: python test_email.py
       - name: Run Walmart Monitor
         run: python walmart_monitor.py 
